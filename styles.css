@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -6,83 +5,61 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
-  overflow-x: hidden;
-}
-
-
-.landing-container {
+  background-color: black;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(180deg, #87CEEB 0%, #87CEEB 60%, #444 60%, #444 100%);
-}
-
-h1 {
-  font-size: 3rem;
-  color: #fff;
-  margin-bottom: 40px;
-}
-
-.road {
-  width: 100%;
-  height: 300px;
-  background-color: #333;
-  position: relative;
   overflow: hidden;
 }
 
-
-.road:before {
-  content: '';
-  position: absolute;
-  top: 45%;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background: repeating-linear-gradient(
-    90deg,
-    transparent 0px,
-    transparent 40px,
-    #fff 40px,
-    #fff 80px
-  );
-  animation: dash 1.5s linear infinite;
+.galaxy {
+  position: relative;
+  width: 500px;
+  height: 500px;
 }
 
-@keyframes dash {
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
+  background-size: 3px 3px;
+  background-position: 50%;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: rotate 20s infinite linear;
+}
+
+.stars:nth-child(2) {
+  width: 300px;
+  height: 300px;
+  animation-duration: 30s;
+}
+
+.stars:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  animation-duration: 40s;
+}
+
+.center {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes rotate {
   from {
-    background-position: 0;
+      transform: rotate(0deg);
   }
   to {
-    background-position: 80px;
+      transform: rotate(360deg);
   }
-}
-
-
-.car-container {
-  position: absolute;
-  bottom: 0;
-  left: -200px; 
-  width: 100px;
-  height: 200px;
-  animation: drive 5s linear infinite;
-}
-
-@keyframes drive {
-  from {
-    left: -200px; /* Start position */
-  }
-  to {
-    left: 100vw; /* End position (off-screen to the right) */
-  }
-}
-
-
-.car {
-  width: 100%;
-  height: auto;
 }
